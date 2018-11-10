@@ -1,0 +1,52 @@
+<footer class="page-footer blue">
+
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Money Tracking</h5>
+                <p class="grey-text text-lighten-4">Una practica del MVC</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2018 Realizado por Diego
+        </div>
+    </div>
+
+</footer>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('select').formSelect();
+        $('.datepicker').datepicker({
+            format: "yyyy-mm-dd"
+        });
+        $('.fixed-action-btn').floatingActionButton();
+        $('.sidenav').sidenav();
+        $('.tap-target').tapTarget();
+
+    });
+</script>
+
+
+<?php
+if (isset($action)) {
+    ?>
+    <script>
+        M.toast({html: '<?php echo $action ?>'})
+    </script>
+    <?php
+}
+?>
+</body>
+</html>

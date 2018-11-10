@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <title><?= $title? $title: 'Revisa tus Cuentas!!'  ?></title>
+    <style>
+        body {
+            font-family: 'Comfortaa', sans-serif;
+
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="navbar-fixed">
+    <nav class="blue">
+        <div class="nav-wrapper container">
+            <a href="<?php echo APP_URL?>" class="brand-logo">Money Tracking</a>
+            <a href="<?php echo APP_URL?>" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="<?php echo APP_URL?>accounts/">Cuentas</a></li>
+                <li><a href="<?php echo APP_URL?>categories/">Categorías</a></li>
+                <li><a href="<?php echo APP_URL?>transactions">Transacciones</a></li>
+
+            </ul>
+        </div>
+    </nav>
+</div>
+
+
+<ul class="sidenav" id="mobile-demo">
+    <li><a href="<?php echo APP_URL?>accounts">Cuentas</a></li>
+    <li><a href="<?php echo APP_URL?>categories">Categorías</a></li>
+    <li><a href="<?php echo APP_URL?>transactions">Transacciones</a></li>
+</ul>
+

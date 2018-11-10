@@ -1,0 +1,45 @@
+<main>
+    <div class="container">
+        <h2>Lista de Categorias</h2>
+        <button class="btn blue darken-4" onclick="$('.tap-target').tapTarget('open');">Ayuda!</button>
+        <table class="highlight responsive-table" border="1">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+
+                <th>Acción</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($categories as $category): ?>
+                <tr>
+                    <td><?php echo $category["id"] ?></td>
+                    <td><?php echo $category["name"] ?></td>
+
+                    <td>
+                        <a class="waves-effect waves-teal btn-flat"
+                           href="<?php echo APP_URL ?>categories/editar/<?= $category["id"] ?>"><i class="material-icons ">edit</i></a>
+                        |<a class="waves-effect waves-teal btn-flat"
+                             href="<?php echo APP_URL ?>categories/eliminar/<?= $category["id"] ?>"><i class="material-icons">delete</i></a>
+                    </td>
+
+                </tr>
+
+            <?php endforeach ?>
+            </tbody>
+        </table>
+
+        <div class="fixed-action-btn">
+            <a id="floating" href="<?php echo APP_URL ?>categories/crear" class="btn-floating btn-large waves-effect waves-light blue darken-4">
+                <i class="material-icons">add</i>
+            </a>
+        </div>
+
+        <div class="tap-target blue darken-2" data-target="floating">
+            <div class="tap-target-content">
+                <h5 class="white-text text-darken-2">Haz click para agregar Categorias</h5>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,45 @@
+<main>
+    <div class="container">
+        <h2>Lista de Cuentas</h2>
+        <button class="btn blue darken-4" onclick="$('.tap-target').tapTarget('open');">Ayuda!</button>
+        <table class="highlight responsive-table" border="1">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+
+                <th>Acción</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($accounts as $account): ?>
+                <tr>
+                    <td><?php echo $account["id"] ?></td>
+                    <td><?php echo $account["name"] ?></td>
+
+                    <td>
+                        <a class="waves-effect waves-teal btn-flat"
+                           href="<?php echo APP_URL ?>accounts/editar/<?= $account["id"] ?>"><i class="material-icons ">edit</i></a>
+                        |<a class="waves-effect waves-teal btn-flat"
+                             href="<?php echo APP_URL ?>accounts/eliminar/<?= $account["id"] ?>"><i class="material-icons">delete</i></a>
+                    </td>
+
+                </tr>
+
+            <?php endforeach ?>
+            </tbody>
+        </table>
+
+        <div class="fixed-action-btn">
+            <a id="floating" href="<?php echo APP_URL ?>accounts/crear" class="btn-floating btn-large waves-effect waves-light blue darken-4">
+                <i class="material-icons">add</i>
+            </a>
+        </div>
+
+        <div class="tap-target blue darken-2" data-target="floating">
+            <div class="tap-target-content">
+                <h5 class="white-text text-darken-2">Haz click para agregar Categorias</h5>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,55 @@
+<main>
+    <div class="container">
+        <h2>Lista de Transacciones</h2>
+        <button class="btn blue darken-4" onclick="$('.tap-target').tapTarget('open');">Ayuda!</button>
+        <table class="highlight responsive-table" border="1">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cuenta</th>
+                <th>Categoria</th>
+                <th>Descripción</th>
+                <th>Fecha</th>
+                <th>Monto</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($transactions as $transaction): ?>
+                <tr>
+                    <td><?php echo $transaction["id"] ?></td>
+                    <td><?php echo $transaction["account_id"] ?></td>
+                    <td><?php echo $transaction["category_id"] ?></td>
+                    <td><?php echo $transaction["description"] ?></td>
+                    <td><?php echo $transaction["date"] ?></td>
+                    <td>
+                        <?php if ($transaction["amount"]<0) { ?>
+                                <span class="red-text"><?php echo $transaction["amount"] ?></span> 
+                            <?php }elseif ($transaction["amount"]>0) { ?>
+                                <span class="green-text"><?php echo $transaction["amount"] ?></span>
+                            <?php } ?>
+                    </td>
+                    <td>
+                        <a class="waves-effect waves-teal btn-flat"
+                           href="<?php echo APP_URL ?>transactions/editar/<?= $transaction["id"] ?>"><i class="material-icons ">edit</i></a>
+                        |<a class="waves-effect waves-teal btn-flat"
+                             href="<?php echo APP_URL ?>transactions/eliminar/<?= $transaction["id"] ?>"><i class="material-icons">delete</i></a>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+            </tbody>
+        </table>
+
+        <div class="fixed-action-btn">
+            <a id="floating" href="<?php echo APP_URL ?>transactions/crear" class="btn-floating btn-large waves-effect waves-light blue darken-4">
+                <i class="material-icons">add</i>
+            </a>
+        </div>
+
+        <div class="tap-target blue darken-2" data-target="floating">
+            <div class="tap-target-content">
+                <h5 class="white-text text-darken-2">Haz click para agregar Categorias</h5>
+            </div>
+        </div>
+    </div>
+</main>
