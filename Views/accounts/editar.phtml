@@ -2,10 +2,10 @@
     <div class="container">
         <h2>Editar cuenta</h2>
         <div class="row">
-            <form class="col s12" action="<?php echo APP_URL ?>accounts/editar/<?php echo account["id"] ?>" method="post">
+            <form class="col s12" action="<?php echo APP_URL ?>/accounts/editar/<?php echo $account["id"] ?>" method="post">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input type="hidden" name="id" value="<?php echo account["id"] ?>">
+                        <input type="hidden" name="id" value="<?php echo $account["id"] ?>">
                         <input name="name" id="name" type="text" class="validate">
                         <label for="name">Nombre de la cuenta</label>
                     </div>
