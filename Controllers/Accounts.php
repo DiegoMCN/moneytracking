@@ -75,15 +75,16 @@ class Accounts extends Controller
         if ($_GET){
             try {
 
-                $this->view->set("title", "Actualizar una una cuenta");
+                $this->view->set("title", "Actualizar una cuenta");
                 $account = $modelAccounts->getById($id);
                 if ($account){
                     //print_r($account);
+                    $this->view->set("account", $account);
+                    $this->view->render("editar");
                 } else{
                     // Un error si no encuentra
                 }
                 // El método render se encarga de renderizar la vista
-             $this->view->render("editar");
             } catch (\Exception $exception){
                 echo $exception->getMessage();
             }

@@ -63,7 +63,7 @@ class Categories extends Controller
             try {
                 $result = $modelCategories->update($_POST);
                 if ($result){
-                    $this->redirect(array("controller"=>"categories"));
+                    header("Location: ".$this->redirect(array("controller"=>"categories")));
                 } else{
                     // Algo harás aqui por si acaso no funciona la creacion
                 }
@@ -78,12 +78,13 @@ class Categories extends Controller
                 $this->view->set("title", "Actualizar una Categoria");
                 $category = $modelCategories->getById($id);
                 if ($category){
-                    print_r($category);
+                    //print_r($category);
+                    $this->view->set("category", $category);
+                    $this->view->render("editar");
                 } else{
                     // Un error si no encuentra
                 }
                 // El método render se encarga de renderizar la vista
-                // $this->view->render("editar");
             } catch (\Exception $exception){
                 echo $exception->getMessage();
             }
